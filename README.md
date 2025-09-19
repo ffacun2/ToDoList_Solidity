@@ -32,38 +32,38 @@ Para interactuar con este contrato de Solidity, se recomienda utilizar **Remix I
 Puedes clonar este repositorio en tu máquina local o simplemente copiar el código del archivo `ToDoList.sol`.
 
 ```
-git clone [https://docs.github.com/es/repositories/creating-and-managing-repositories/quickstart-for-repositories](https://docs.github.com/es/repositories/creating-and-managing-repositories/quickstart-for-repositories)
+git clone https://github.com/ffacun2/ToDoList_Solidity.git
 ```
 
 2. Abrir y Configurar en Remix IDE
-Abre Remix IDE.
+  1. Abre Remix IDE.
 
-Crea un nuevo archivo en la carpeta contracts (por ejemplo, ToDoList.sol).
+  2. Crea un nuevo archivo en la carpeta contracts (por ejemplo, ToDoList.sol).
 
-Copia y pega el código de ToDoList.sol en el nuevo archivo.
+  3. Copia y pega el código de ToDoList.sol en el nuevo archivo.
 
 3. Compilar el Contrato
-Navega al segundo icono en la barra lateral izquierda (el de un compilador de Solidity).
+  1. Navega al segundo icono en la barra lateral izquierda (el de un compilador de Solidity).
 
-Asegúrate de que la versión del compilador sea compatible (la directiva pragma especifica 0.8.30 o superior).
+  2. Asegúrate de que la versión del compilador sea compatible (la directiva pragma especifica 0.8.30 o superior).
 
-Haz clic en el botón "Compile ToDoList.sol". Deberías ver una marca de verificación verde, indicando que la compilación fue exitosa.
+  3. Haz clic en el botón "Compile ToDoList.sol". Deberías ver una marca de verificación verde, indicando que la compilación fue exitosa.
 
 4. Desplegar y Probar el Contrato
-Navega al tercer icono en la barra lateral izquierda (el de un logo de Ethereum, Deploy & Run Transactions).
+  1. Navega al tercer icono en la barra lateral izquierda (el de un logo de Ethereum, Deploy & Run Transactions).
 
-En el entorno Environment, selecciona "Injected Provider - MetaMask" si deseas desplegar en una red de prueba real (como Sepolia), o "Remix VM (Shanghai)" para una prueba local instantánea.
+  2. En el entorno Environment, selecciona "Injected Provider - MetaMask" si deseas desplegar en una red de prueba real (como Sepolia), o "Remix VM (Shanghai)" para una prueba local instantánea.
 
-Asegúrate de que el contrato seleccionado (CONTRACT) sea ToDoList.
+  3. Asegúrate de que el contrato seleccionado (CONTRACT) sea ToDoList.
 
-Haz clic en el botón "Deploy".
+  4. Haz clic en el botón "Deploy".
 
-Una vez desplegado, el contrato aparecerá en la sección "Deployed Contracts" en la parte inferior de la pestaña.
+  5. Una vez desplegado, el contrato aparecerá en la sección "Deployed Contracts" en la parte inferior de la pestaña.
 
-Expande el contrato para ver y probar todas sus funciones. Por ejemplo:
+  6. Expande el contrato para ver y probar todas sus funciones. Por ejemplo:
 
-Usa addTarea con un título y una descripción para agregar una tarea.
+  * Usa addTarea con un título y una descripción para agregar una tarea.
 
-Usa el botón s_tareas (público array) para ver cuántas tareas hay.
+  * Usa el botón s_tareas (público array) para ver cuántas tareas hay.
 
-Usa getTarea con un índice (empezando por 0) para obtener los detalles de una tarea.
+  * Usa getTarea con un índice (empezando por 0) para obtener los detalles de una tarea.
