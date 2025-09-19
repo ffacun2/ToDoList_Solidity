@@ -1,28 +1,69 @@
-REMIX DEFAULT WORKSPACE
+# 📋 ToDoList en Solidity
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+Este es un proyecto de contrato inteligente desarrollado en **Solidity** que simula una lista de tareas simple (To-Do List) dentro de la **Ethereum Virtual Machine (EVM)**.
 
-This workspace contains 3 directories:
+El objetivo principal es con fines educativos, demostrando el uso de:
+* **Structs** (estructuras de datos) para definir una tarea.
+* **Enums** (enumeradores) para gestionar el estado de una tarea (`PENDIENTE`, `EN_PROCESO`, `COMPLETADO`).
+* **Arrays dinámicos** (`Tarea[] public s_tareas`) para almacenar la lista de tareas en el almacenamiento del contrato.
+* **Eventos** para notificar a las aplicaciones externas sobre cambios en el estado del contrato (agregar, actualizar, eliminar tareas).
+* Una técnica de **eliminación eficiente** (`swap-and-pop`) para optimizar el gas.
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+## Estructura del Contrato
 
-SCRIPTS
+El contrato `ToDoList` incluye las siguientes funcionalidades:
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+| Función | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `addTarea(string, string)` | `external` | Agrega una nueva tarea con título y descripción, estableciendo el estado inicial en `PENDIENTE`. |
+| `getTarea(uint256)` | `external view` | Devuelve los datos de una tarea por su índice. |
+| `updateTituloTarea(uint256, string)` | `external` | Actualiza el título de una tarea existente. |
+| `updateDescripcionTarea(uint256, string)` | `external` | Actualiza la descripción de una tarea existente. |
+| `updateEstadoEnProcesoTarea(uint256)` | `external` | Cambia el estado de una tarea a `EN_PROCESO`. |
+| `updateEstadoCompletoTarea(uint256)` | `external` | Cambia el estado de una tarea a `COMPLETADO`. |
+| `deleteTarea(uint256)` | `external` | Elimina una tarea por su índice utilizando el patrón de "swap-and-pop". |
 
-For the deployment of any other contract, just update the contract name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+## 🚀 Cómo Clonar y Ejecutar en un IDE
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+Para interactuar con este contrato de Solidity, se recomienda utilizar **Remix IDE**, un entorno de desarrollo integrado basado en navegador ideal para escribir, desplegar y probar contratos.
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+### 1. Clonar el Repositorio
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+Puedes clonar este repositorio en tu máquina local o simplemente copiar el código del archivo `ToDoList.sol`.
+
+```
+git clone [https://docs.github.com/es/repositories/creating-and-managing-repositories/quickstart-for-repositories](https://docs.github.com/es/repositories/creating-and-managing-repositories/quickstart-for-repositories)
+```
+
+2. Abrir y Configurar en Remix IDE
+Abre Remix IDE.
+
+Crea un nuevo archivo en la carpeta contracts (por ejemplo, ToDoList.sol).
+
+Copia y pega el código de ToDoList.sol en el nuevo archivo.
+
+3. Compilar el Contrato
+Navega al segundo icono en la barra lateral izquierda (el de un compilador de Solidity).
+
+Asegúrate de que la versión del compilador sea compatible (la directiva pragma especifica 0.8.30 o superior).
+
+Haz clic en el botón "Compile ToDoList.sol". Deberías ver una marca de verificación verde, indicando que la compilación fue exitosa.
+
+4. Desplegar y Probar el Contrato
+Navega al tercer icono en la barra lateral izquierda (el de un logo de Ethereum, Deploy & Run Transactions).
+
+En el entorno Environment, selecciona "Injected Provider - MetaMask" si deseas desplegar en una red de prueba real (como Sepolia), o "Remix VM (Shanghai)" para una prueba local instantánea.
+
+Asegúrate de que el contrato seleccionado (CONTRACT) sea ToDoList.
+
+Haz clic en el botón "Deploy".
+
+Una vez desplegado, el contrato aparecerá en la sección "Deployed Contracts" en la parte inferior de la pestaña.
+
+Expande el contrato para ver y probar todas sus funciones. Por ejemplo:
+
+Usa addTarea con un título y una descripción para agregar una tarea.
+
+Usa el botón s_tareas (público array) para ver cuántas tareas hay.
+
+Usa getTarea con un índice (empezando por 0) para obtener los detalles de una tarea.
